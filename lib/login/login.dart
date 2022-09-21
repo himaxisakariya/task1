@@ -59,8 +59,10 @@ class _loginState extends State<login> {
                 physics: NeverScrollableScrollPhysics(),
                 controller: widget.tabController,
                 children: [
-                  firstpage(widget.tabController,"Singin"),
-                  showdata(widget.tabController,),
+                  firstpage(widget.tabController, "signin"),
+                  showdata(
+                    widget.tabController,
+                  ),
                 ]),
           ),
         ));

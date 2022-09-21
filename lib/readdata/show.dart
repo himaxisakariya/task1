@@ -36,8 +36,10 @@ class _showdataState extends State<showdata> {
           } else if (snapshot.hasData) {
             final user = snapshot.data!;
 
-            return ListView(
-              children: user.map(buildUser).toList(),
+            return ListView.builder(
+             shrinkWrap: true,
+              itemCount: snapshot.data!.length,
+              itemBuilder: (context, index) => buildUser(snapshot.data![index]),
             );
           } else {
             return Center(
@@ -50,8 +52,8 @@ class _showdataState extends State<showdata> {
   }
 
   Widget buildUser(UserModal userModal) => ListTile(
-        title: Text(userModal.name!),
-        subtitle: Text(userModal.email!),
+        subtitle: userModal.name!=null?Text("${userModal.uId}"):Text("Empty"),
+        title: Text(userModal.email!),
         leading: userModal.userImage!=null?Image.network("${userModal.userImage}"):Text("Empty"),
         trailing: IconButton(onPressed: () {
           showDialog(
