@@ -5,6 +5,7 @@ import 'package:fluttertoast/fluttertoast.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:task1/emaildata/emailclassmodel.dart';
+import 'package:task1/emaildata/reset.dart';
 import '../class/classmodel.dart';
 import '../class/shared.dart';
 
@@ -146,6 +147,11 @@ class _firstpageState extends State<firstpage> {
                     print("Login");
                   },
                   child: Text("Signin with google",)),
+              TextButton(onPressed: () {
+                Navigator.push(context, MaterialPageRoute(builder: (context) {
+                  return rpassword();
+                },));
+              }, child: Text("Forgot Password???")),
             ],
           ),
         ),
