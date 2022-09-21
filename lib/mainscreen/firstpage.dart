@@ -11,7 +11,7 @@ import '../class/shared.dart';
 class firstpage extends StatefulWidget {
   TabController tabController;
   String? method;
-
+//jiii
   firstpage(this.tabController,this.method);
 
   @override
