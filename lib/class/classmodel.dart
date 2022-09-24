@@ -15,7 +15,8 @@ class UserModal {
     this.phone,
     this.userImage,
     this.email,
-
+    this.person,
+    this.dob,
   });
 
   String? uId;
@@ -23,6 +24,8 @@ class UserModal {
   String? phone;
   String? userImage;
   String? email;
+  String? person;
+  String? dob;
 
   factory UserModal.fromJson(Map  json) => UserModal(
     uId: json["uId"],
@@ -30,6 +33,8 @@ class UserModal {
     phone: json["phone"],
     userImage: json["userImage"],
     email: json["email"],
+    person: json["person"],
+    dob: json["dob"]
   );
 
   Map<String, dynamic> toJson() => {
@@ -38,5 +43,69 @@ class UserModal {
     "phone": phone,
     "userImage": userImage,
     "email": email,
+    "person": person,
+    "dob": dob
+  };
+}
+
+
+
+List<Demo> demoFromJson(String str) => List<Demo>.from(json.decode(str).map((x) => Demo.fromJson(x)));
+
+String demoToJson(List<Demo> data) => json.encode(List<dynamic>.from(data.map((x) => x.toJson())));
+
+class Demo {
+  Demo({
+    this.id,
+    this.bannerFor,
+    this.forId,
+    this.photoUrl,
+    this.createdAt,
+    this.updatedAt,
+    this.v,
+    this.isLock,
+    this.redirectTo,
+    this.type,
+    this.redirect,
+  });
+
+  String? id;
+  String? bannerFor;
+  String? forId;
+  String? photoUrl;
+  DateTime? createdAt;
+  DateTime? updatedAt;
+  int? v;
+  bool? isLock;
+  String? redirectTo;
+  String? type;
+  String? redirect;
+
+  factory Demo.fromJson(Map<String, dynamic> json) => Demo(
+    id: json["_id"],
+    bannerFor: json["bannerFor"],
+    forId: json["forId"],
+    photoUrl: json["photoUrl"],
+    createdAt: DateTime.parse(json["createdAt"]),
+    updatedAt: DateTime.parse(json["updatedAt"]),
+    v: json["__v"],
+    isLock: json["isLock"],
+    redirectTo: json["redirectTo"],
+    type: json["type"],
+    redirect: json["redirect"] == null ? null : json["redirect"],
+  );
+
+  Map<String, dynamic> toJson() => {
+    "_id": id,
+    "bannerFor": bannerFor,
+    "forId": forId,
+    "photoUrl": photoUrl,
+    "createdAt": createdAt!.toIso8601String(),
+    "updatedAt": updatedAt!.toIso8601String(),
+    "__v": v,
+    "isLock": isLock,
+    "redirectTo": redirectTo,
+    "type": type,
+    "redirect": redirect == null ? null : redirect,
   };
 }
