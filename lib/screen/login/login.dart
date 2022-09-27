@@ -299,6 +299,7 @@ class _firstpageState extends State<firstpage> {
                             // border: OutlineInputBorder(),
                             labelText: 'Password',
                             labelStyle: TextStyle(color: Colors.black87),
+
                             focusedBorder: OutlineInputBorder(
                               borderSide: BorderSide(color: Colors.black),
                             ),
@@ -469,7 +470,6 @@ class _firstpageState extends State<firstpage> {
                           shared.prefs = await SharedPreferences.getInstance();
                           await shared.prefs!.setString("login", "yes");
                         }
-                        print("Login");
                       },
                     ),
                     Container(
@@ -509,6 +509,7 @@ class _firstpageState extends State<firstpage> {
                       padding: const EdgeInsets.fromLTRB(15, 20, 15, 10),
                       child: TextFormField(
                         controller: temail,
+                        textInputAction: TextInputAction.next,
                         validator: (value) {
                           if (value == null || value.isEmpty) {
                             return '*Email is required';
@@ -535,6 +536,8 @@ class _firstpageState extends State<firstpage> {
                       child: TextFormField(
                         controller: tpass,
                         obscureText: s,
+                        textInputAction: TextInputAction.done,
+
                         validator: (value) {
                           if (value == null || value.isEmpty) {
                             return 'Password must not be empty';

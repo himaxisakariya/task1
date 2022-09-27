@@ -56,10 +56,12 @@ class _loginState extends State<login> {
             appBar: AppBar(
               actions: [
                 IconButton(onPressed: () {
-                  Navigator.push(context, MaterialPageRoute(builder: (context) {
-                    return apiscreen();
+                  Navigator.push(context, MaterialPageRoute(
+                    fullscreenDialog: true,
+                    builder: (context) {
+                    return apiscrren();
                   },));
-                }, icon: Icon(Icons.add,color: Colors.white,))
+                }, icon: Icon(Icons.add,color: Colors.white,size: 30,))
               ],
               backgroundColor: Colors.purple,
               centerTitle: true,
